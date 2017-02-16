@@ -1,0 +1,1 @@
+{"version":"0.1.0","name":"Data Store Updater","description":"PEPFAR Data Store Updater","icons":{"48":"images/icons/datastore.png"},"developer":{"url":"","name":"David Nicinski"},"launch_path":"index.html?v=0.1.0","default_locale":"en","activities":{"dhis":{"href":"*"}}}

@@ -1,0 +1,1146 @@
+@import "../variables"
+@import "../notify/notify"
+@import "../dhis2reset"
+@import url("https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css")
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+  display: none !important
+
+*
+  box-sizing: border-box
+
+body
+  font-size: 14px
+
+.yesresults pre
+  color: #888
+  font-family: LiberationSans,arial,sans-serif
+  font-size: 1em
+  margin: 20px 0
+  border: medium none transparent
+
+.well textarea.readonly
+  background: transparent none repeat scroll 0 0
+  border: medium none
+  height: auto
+  position: inherit
+  width: 100%
+
+.app-header > a
+  color: #888
+
+.settingrow
+  border-bottom: 2px solid #ccc
+  margin: 0 0 15px
+  padding: 0 0 10px
+  background: #fff
+
+.glyphicon.glyphicon-remove
+  color: #990000
+
+.clearapp
+  background: none
+  border: none
+  cursor: pointer
+  padding: 5px 10px
+  position: absolute
+  right: 30px
+  top: 4px
+  color: #990000
+  font-weight: bold
+
+.form-control
+  height: auto
+
+.dnapp textarea.edittextarea
+  background: #f2fff2 none repeat scroll 0 0
+  border: 1px solid #509d12
+
+.deactivate.tablecell
+  width: 120px
+  text-align: right
+
+.select-filters.col-sm-12 h4
+  margin: 0
+
+.datastore-filter-settings .well.help-text
+  box-shadow: 1px 1px 2px #ccc
+  padding: 17px 20px 20px
+
+.filterForm .select-filters
+  padding: 10px 15px 0
+
+.tableview
+  display: table
+
+.tablecell
+  display: table-cell
+  vertical-align: top
+
+.updater-list
+  margin: 5px 0 10px
+
+.app-result-title
+  margin: 10px 0 0
+
+.resultbox select.btn.btn-default
+  text-align: left
+
+.fa.fa-search
+  color: #888
+  position: absolute
+  right: 25px
+  top: 20px
+
+.resultbox
+  border: 1px solid #ccc
+  border-radius: 4px
+  box-shadow: 1px 1px 2px #ccc
+  padding: 15px 15px 5px
+  width: 100%
+
+.resultboxedit
+  padding: 17px 20px 20px
+
+.resultbox .filters.well
+  border: medium none
+  box-shadow: none
+  margin: 0
+  padding: 10px 0 0
+
+.dnapp input[type="text"], .dnapp input[type="password"], .dnapp input[type="email"], .dnapp textarea
+  border: 1px solid #ccc
+  padding: 5px
+
+.select-filters.col-sm-4
+  padding: 10px 15px 0
+
+.filters.well
+  margin: 10px 0 0
+
+.noresults
+  background: #f5f5f5 none repeat scroll 0 0
+  border-radius: 4px
+  color: #888
+  font-size: 16pt
+  margin: 5px 0 10px
+  padding: 30px 0
+  text-align: center
+  width: 100%
+
+.data-details-view
+  background-color: #eee
+  border-radius: 5px
+  min-height: 400px
+  opacity: 1
+  padding: 15px
+  position: absolute
+  right: 0
+  top: 0
+  transition: all 300ms ease 0s
+  width: 35%
+
+input.ng-invalid.ng-touched
+  border: 1px solid #DA3637
+
+input.ng-valid.ng-touched
+  border: 1px solid #509D12
+
+textarea.ng-invalid.ng-touched
+  border: 1px solid #DA3637
+
+textarea.ng-valid.ng-touched
+  border: 1px solid #509D12
+
+.resultbox input.ng-valid.ng-touched
+  border: 1px solid #ccc
+
+#single-button.btn.btn-default
+  border-radius: 4px
+
+.error
+  color: red
+
+.toast-top-full-width
+  top: 100px
+
+.fa
+  transform: none
+
+.toast-message
+  font-size: 18px
+
+.toast .btn
+  color: #000
+
+.form-group.preval
+  background: #fff6e8 none repeat scroll 0 0
+  border: 1px solid #ffd8a0
+  border-radius: 4px
+  padding: 10px
+
+.form-group.deleteval
+  background: #ffe6e6 none repeat scroll 0 0
+  border: 1px solid #ff6161
+  border-radius: 4px
+  padding: 10px
+
+.icon-rotate
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ( 360deg ) rotateY( 360deg )
+  color: #990000
+
+.button-group a:hover i
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #990000
+
+.button-group button:hover i
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #990000
+
+button:hover i.fa
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #990000
+
+button:hover i.fa.fa-times
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+button:hover i.fa.fa-download
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+button:hover i.fa.fa-download.alldown
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #000
+
+button:hover i.fa.fa-pencil-square-o
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+button:hover i.fa.fa-arrow-up
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+button:hover i.fa.fa-plus-square-o
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+button:hover i.fa.fa-plus-square-o.adde
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+button:hover i.fa.fa-trash-o
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+button:hover i.fa.fa-step-backward
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+button:hover i.fa.fa-step-backward
+  transform-style: preserve-3d
+  transition: transform 0.5s
+  transform: rotateZ(360deg) rotateY(360deg)
+  color: #fff
+
+.btn.btn-default.btn-new-download
+  background: #666 none repeat scroll 0 0
+  color: #fff
+  border-color: #333
+
+.btn.btn-default.btn-new-download.allapp
+  background: #fff none repeat scroll 0 0
+  color: #333
+  border-color: #ccc
+
+.btn.btn-default.editbtn
+  background: #4f8cc5 none repeat scroll 0 0
+  color: #fff
+  border-color: #1962a7
+
+.btn.btn-default.btn-new-datastore
+  background: #7eb1b7 none repeat scroll 0 0
+  border-color: #57a3ac
+  color: #fff
+  margin: 0px 0 10px
+
+.datastore-filter-settings h5
+  margin: 0 0 10px 5px
+
+.dnapp .filters-collapse
+  margin: 0 0 40px 0
+
+.dnapp .tabs1.create
+  padding: 5px 15px
+
+.datastore-filter-settings h4 b
+  color: #990000
+
+.dnapp .create .filters.well
+  margin: 0
+
+.dnapp .tabscontainer .tabs1
+  background: #fcf8e3 none repeat scroll 0 0
+  border: 1px solid #a59b37
+  border-radius: 4px
+
+.select-filtertype
+  background: #fff none repeat scroll 0 0
+  border-radius: 4px
+  padding: 0
+
+.ui-select-bootstrap > .ui-select-choices
+  height: auto
+  max-height: 500px
+
+.create .datastore-filter-settings .ui-select-bootstrap .ui-select-choices-row > a
+  padding: 9px 10px
+
+.datastore-filter-settings .ui-select-choices-group-label.dropdown-header.ng-binding
+  color: #000
+  font-size: 14px
+  font-weight: bold
+  text-transform: uppercase
+
+.redcr
+  font-size: 12px
+
+.greencir
+  color: #1c5511
+
+.bluearr
+  color: #11488d
+
+.datastore-unit.row.resultsstore input
+  padding: 10px
+  width: 100%
+
+.tabscontainer .well
+  background: #fff none repeat scroll 0 0
+
+.tabs1
+  background: #ecf9f2 none repeat scroll 0 0
+  border: 5px solid #e0eee0
+  border-image: none
+  margin: 0
+  padding: 25px 15px 0
+
+.tabs2
+  background: #e6f2ff none repeat scroll 0 0
+  border: 5px solid #cce6ff
+  border-image: none
+  margin: 0
+  padding: 25px 15px 0
+
+.tabs3
+  background: #ffe6e6 none repeat scroll 0 0
+  border: 5px solid #ffcccc
+  border-image: none
+  margin: 0
+  padding: 25px 15px 0
+
+.tabstop
+  background: #fff none repeat scroll 0 0
+  border-bottom: 0 solid #ccc
+
+.tabscontainer
+  background: #fff none repeat scroll 0 0
+  border: 0 solid #ccc
+  border-radius: 5px
+  padding: 0
+
+.tabsds1
+  background-color: #e0eee0
+  border-radius: 0
+  color: #000
+  display: inline-block
+  list-style: outside none none
+  margin: 0
+  padding: 10px 15px
+  cursor: pointer
+  font-weight: bold
+  text-transform: uppercase
+
+.tabsds2
+  background-color: #cce6ff
+  border-radius: 0
+  color: #000
+  display: inline-block
+  list-style: outside none none
+  margin: 0
+  padding: 10px 15px
+  cursor: pointer
+  font-weight: bold
+  text-transform: uppercase
+
+.tabsds3
+  background-color: #ffcccc
+  border-radius: 0
+  color: #000
+  display: inline-block
+  list-style: outside none none
+  margin: 0
+  padding: 10px 15px
+  cursor: pointer
+  font-weight: bold
+  text-transform: uppercase
+
+.tabsds1:hover
+  background: #008000
+  color: #fff
+
+.tabsds2:hover
+  background: #337ab7
+  color: #fff
+
+.tabsds3:hover
+  background: #990000
+  color: #fff
+
+.tabsds:hover
+  background-color: #4a4a4a
+  color: #FFF
+  cursor: pointer
+
+.well
+  padding: 12px 12px 0
+  border: 1px solid #ccc
+
+.well.help-text
+  padding: 12px
+
+.datastoremain textarea
+  width: 100%
+  padding: 15px
+
+.panel-title
+  font-weight: bold
+
+.datastore-unit.row.resultsstore h4
+  color: #000
+  font-size: 16px
+  font-weight: bold
+  text-align: left
+
+.datastore-unit.row.resultsstore
+  padding: 0 20px
+
+.datastore-unit.row h4
+  color: #000
+  font-size: 14px
+  font-weight: bold
+  text-align: center
+
+.datastore-unit.row
+  padding: 0
+
+.col-md-3 h4
+  margin: 0
+
+.centerme1 h4
+  text-align: center
+  padding: 0 0 8px
+
+.centerme2 h4
+  text-align: center
+  padding: 0 0 8px
+
+.centerme3 h4
+  text-align: center
+  padding: 0 0 8px
+
+.app-content-wrap .container
+  padding: 0
+  width: 100%
+
+#headerText.header-text
+  left: 75px
+
+#headerBanner.header-logo
+  left: -50px
+
+#menuLinkArea
+  list-style-type: none !important
+  margin: 0 !important
+  max-width: 99% !important
+  padding: 0 !important
+
+.app-header-icon
+  color: #990000
+  display: inline-block
+  font-size: 1.6em
+  font-weight: bold
+  line-height: 0.7
+  margin-top: 0
+
+@media (-webkit-min-device-pixel-ratio:0)
+  .app-header-icon
+    font-size: 1.2em
+
+.app-content-wrap
+  margin: 75px auto 0 auto
+  max-width: 90%
+  position: relative
+  width: 90%
+
+  h1.app-header
+    color: #888
+    display: inline-block
+    font-size: 2em
+    font-weight: normal
+    margin-top: 0
+    padding: 0
+    width: 100%
+
+@media (max-width: 1024px)
+  .well
+    padding: 10px
+
+  .app-content-wrap
+    width: 90%
+
+  #headerText.header-text
+    color: #fff
+    font-size: 16px
+    font-weight: bold
+    left: 75px
+    position: absolute
+    top: 12px
+
+  #headerBanner.header-logo
+    left: -50px
+    position: absolute
+    top: 13px
+
+@media (max-width: 992px)
+  .datastore-type-buttons button.btn.btn-default
+    margin: 5px
+    width: 100%
+
+  .datastore-type-buttons button.btn.btn-default:last-child
+    float: none
+
+  .app-content-wrap h1.app-header
+    font-size: 1.5em
+
+@media (max-width: 767px)
+  .tabsds1
+    font-size: 12px
+    padding: 7px 8px
+
+  .tabsds2
+    font-size: 12px
+    padding: 7px 8px
+
+  .tabsds3
+    font-size: 12px
+    padding: 7px 8px
+
+  .btn-new-datastore
+    margin: 10px 0 0
+    width: 100%
+
+  .btn-new-download
+    margin: 10px 0 0
+    width: 100%
+
+  .app-result-title
+    text-align: center
+
+  .select-filters.col-sm-6 h4
+    text-align: center
+
+.loading-mask
+  background: transparent
+  background: rgba(0, 0, 0, 0.2)
+  position: fixed
+  height: 100%
+  left: 0
+  top: 0
+  width: 100%
+  z-index: 4
+
+  .loading-mask-content
+    color: #FFFFFF
+    position: relative
+    left: 25%
+    background-color: #276696
+    width: 50%
+    top: 30%
+    padding: 30px
+    border-radius: 8px
+    text-align: center
+    font-size: 1.1em
+
+.datastore-records
+  margin-bottom: 200px
+
+.resolve-footer
+  left: 0
+  padding: 10px 10%
+  position: fixed
+  background-color: #FFF
+  background-color: rgba(255,255,255, 0.8)
+  border-top: 1px solid #CCC
+  bottom: 0
+  width: 100%
+  z-index: 3
+
+  span, label
+    line-height: 34px
+
+.datastore-filter-settings
+  transition: all linear 300ms
+  margin: 0 auto
+
+  & > div
+    margin-bottom: 30px
+
+  .organisation-unit
+    margin-bottom: 20px
+
+  .period-selector.row,
+  .datastore-type-buttons
+    margin-top: 20px
+
+  .filters-cog
+    display: none
+
+  &.filter-dropdown
+    z-index: 14
+
+    .filters-cog
+      display: block
+      min-height: 34px
+      position: relative
+
+      button
+        position: absolute
+        right: 0
+
+.datastore-confirm-box
+  background-color: rgba(255, 255, 255, .4)
+
+  .modal-content
+    background: #FFFFFF
+    background-color: rgba(255, 255, 255, .85)
+    padding: 15px
+
+    button
+      margin-right: 30px
+
+.datastore-type-buttons
+  button
+    display: table-cell
+    width: 49%
+    background-color: #888
+    border-color: #888
+    color: #fff
+    font-weight: bold
+
+    &:last-child
+      float: right
+
+.datastore-type-buttons
+  button:hover
+    background: #999
+
+.tabs1
+  .datastore-type-buttons
+    button
+      display: table-cell
+      width: 100%
+      background-color: #76b676
+      border-color: #509650
+      color: #fff
+      font-weight: bold
+
+      &:last-child
+        float: none
+
+.tabs1
+  .datastore-type-buttons
+    button:hover
+      background: #009900
+
+.tabs2
+  .datastore-type-buttons
+    button
+      display: table-cell
+      width: 49%
+      background-color: #74a9d8
+      border-color: #4c91cd
+      color: #fff
+      font-weight: bold
+
+      &:last-child
+        float: right
+
+.tabs2
+  .datastore-type-buttons
+    button:hover
+      background: #3884c7
+
+.tabs3
+  .datastore-type-buttons
+    button
+      display: inline-block
+      width: 100%
+      background-color: #c65353
+      border-color: #993333
+      color: #fff
+      font-weight: bold
+
+      &:last-child
+        float: none
+
+.tabs3
+  .datastore-type-buttons
+    button:hover
+      background: #b30000
+
+.datastore-type-buttons-left
+  button
+    display: table-cell
+    width: 100%
+    background-color: #efefef
+    border-color: #ccc
+    color: #000
+    font-weight: bold
+
+.datastore-type-buttons-left
+  button:hover
+    background-color: #ccc
+    border-color: #999
+    color: #000
+
+.datastore-type
+  background: rgba(255, 255, 255, 0.25)
+  margin: 10px 5px 0px
+  padding: 5px 10px
+
+.datastore-download-csv
+  margin-bottom: 30px
+  text-align: right
+
+.page-goto
+  width: 50%
+  margin: 0 auto
+
+  button
+    vertical-align: top
+    margin: 0 auto
+    min-width: 294px
+    max-width: 294px
+
+  label
+    margin-right: 1rem
+    display: block
+
+    span
+      min-width: 210px
+      max-width: 210px
+      display: inline-block
+
+  input.form-control
+    width: 5rem
+    display: inline-block
+    width: 8rem
+    text-align: right
+    font-weight: normal
+
+.message-all-resolved
+  font-size: 2rem
+  color: green
+  padding-bottom: 1rem
+
+  .fa
+    margin-right: 1rem
+
+.search-form
+  div.row
+    margin-bottom: 2px
+    &:last-child
+      margin-bottom: 15px
+
+  .button-group
+    float: inherit
+
+.select-filters
+  position: relative
+
+.select-filtertype
+  width: 100%
+
+.select-filter-type
+  -webkit-transition: 300ms width
+  transition: 300ms width
+
+.select-filtertype-secondary-wrap
+  position: relative
+
+  div
+    right: 0
+
+  & div:first-child
+    left: 0
+
+.select-filtertype-secondary
+  position: absolute
+  -webkit-transition: 400ms width
+  transition: 400ms width
+  right: 15px
+  top: 0
+  width: 100%
+
+.select-filtertype-secondary.ng-hide
+  position: absolute
+  width: 0%
+
+.search-result-header
+  border-top: 1px solid #CCCCCC
+  padding-top: 15px
+  padding-bottom: 15px
+
+.search-result-header-list
+  border-top: 0px solid #CCCCCC
+  padding-top: 0px
+  padding-bottom: 0px
+
+.search-result-header-list h3
+  margin: 0
+
+.loading-mask
+  background-color: transparent
+  background-color: rgba(0, 0, 0, 0.3)
+  border-radius: 5px
+  z-index: 100
+  position: absolute
+  width: 100%
+  height: 100%
+  padding-top: 150px
+  min-height: 300px
+
+  .loading-mask-inner
+    background-color: #990000
+    color: #EEEEEE
+    position: relative
+    padding: 15px
+    width: 150px
+    margin: 0 auto
+    font-size: 1.2em
+    border-radius: 4px
+    width: 50%
+    text-align: center
+
+.updater-list, .updater-list-row
+  list-style: none
+  padding: 0
+  margin: 0
+  -webkit-transition: 300ms all
+  transition: 300ms all
+
+.updater-list-row
+  border-color: transparent
+  border-radius: 5px
+  border-style: solid
+  border-width: 1px
+  height: auto
+  margin: 0 0 10px
+  min-height: 80px
+  padding: 15px
+
+  //&:hover, &.is-details-updater:hover, &:nth-child(odd):hover, &.is-details-updater:nth-child(odd):hover
+    //background-color: #ccc
+    //color: #000
+
+    .email, .updatername
+      .fa
+        color: #FFF
+
+  &.is-details-updater, &.is-details-updater:nth-child(odd)
+    background-color: #FFFFCC
+
+  &:nth-child(odd)
+    background-color: #EEEEEE
+
+.updater-details-main .updater-name
+  overflow: hidden
+  width: 100%
+  display: block
+  height: 28px
+  text-overflow: ellipsis
+  -o-text-overflow: ellipsis
+  white-space: nowrap
+
+.updater-name
+  font-size: 1.2em
+
+  .updater-details-title &
+    color: #276696
+    font-size: 1.5em
+
+.updater-details-title
+  margin-bottom: 30px
+
+.details-updater-type,
+.details-updater-organisation,
+.details-updater-country
+  color: #276696
+  font-size: 1.1em
+
+.updater-details-main
+  .email, .updatername
+    min-width: 330px
+
+  .deactivate
+    & > span
+      position: absolute
+      right: 15px
+
+    div
+      left: 10px
+      width: 110px
+      float: left
+
+.updater-details-sub
+  -webkit-transition: 150ms linear all
+  transition: 150ms linear all
+  display: block
+  height: 0
+  overflow: hidden
+  font-size: .8em
+  border-top: 1px dotted #FFFFFF
+  margin-top: 5px
+  padding-top: 5px
+
+  ul
+    margin-left: 0
+    padding-left: 0
+
+  .updater-item
+    display: inline-block
+    width: 50%
+    list-style: none
+    margin: 0
+
+  .updater-list-row:hover &
+    display: block
+    height: 100px
+
+
+  .title
+    display: block
+    color: #DDDDDD
+
+.updater-no-access
+  color: #d9534f
+
+.updater-access
+  color: #5cb85c
+
+.updater-disabled, .updater-enabled
+  color: #FFF
+
+.updater-disabled
+  background-color: #d9534f
+
+.updater-enabled
+  background-color: #5cb85c
+
+.updater-status
+  display: inline-block
+  color: white
+  padding: 8px
+  width: 79px
+  text-align: center
+
+  .updater-edit-header &
+    border-radius: 5px
+    position: absolute
+    right: 0
+    top: 20px
+
+  .updater-list-row &
+    display: block
+    transform: rotateZ(-90deg) translateY(31px) translateX(-15px)
+    -ms-transform: rotateZ(-90deg) translateY(31px) translateX(-15px)
+    -webkit-transform: rotateZ(-90deg) translateY(31px) translateX(-15px)
+    box-shadow: 0px 7px 4px -6px #555 inset
+    border-top: 1px solid #666
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+
+    @media (max-width: 768px)
+      &
+        display: none
+
+.updater-details-view
+  .updater-details-close
+    position: absolute
+    right: 15px
+    top: 10px
+  h3
+    font-size: 1.3em
+    margin: 0
+
+  table
+    width: 100%
+
+    thead
+      th
+        text-align: center
+
+    tbody
+      tr:nth-child(odd)
+        background-color: #FFFFFF
+
+      th, td
+        padding: 5px 10px 10px 5px
+
+      td
+        text-align: center
+
+.data-group
+  margin-top: 30px
+
+  &:first-child
+    margin-top: 0
+
+  ul, li
+    list-style: none
+    margin: 0
+
+    i
+      width: 20px
+
+  h3
+    margin-bottom: 15px
+
+  ul
+    padding: 0
+
+.help-text
+  ul
+    margin: 0
+
+@media (min-width: 1000px)
+  .updater-list
+    width: 100%
+    margin: 5px 0 10px
+
+    &.updater-details-open
+      width: 60%
+
+  .updater-details-view
+    position: absolute
+    right: 0
+    top: 0
+    -webkit-transition: 300ms all
+    transition: 300ms all
+    width: 35%
+    min-height: 400px
+    opacity: 1
+    background-color: #EEEEEE
+    border-radius: 5px
+    padding: 15px
+
+    &.ng-hide
+      opacity: 0
+      width: 0
+      height: 0
+
+.list-name
+  font-size: 1.1em
+  line-height: 1.5
+  color: #555
+
+.list-key
+  font-size: 1.1em
+  line-height: 1.5
+  color: #555
+
+.list-value
+  font-size: 1.1em
+  line-height: 1.5
+  color: #555
+
+.pagination
+  margin: 2px 0 7px
+
+.btn-warning
+  background-color: #e49b33
+  border-color: #cc7d0d
+  color: #fff
+
+.btn-warning:active,
+.btn-warning:hover
+  background-color: #d78d23
+
+.btn.btn-default.btn-new-datastore:active,
+.btn.btn-default.btn-new-datastore:hover
+  background-color: #57a3ac
+
+.btn.btn-default.btn-new-download:active,
+.btn.btn-default.btn-new-download:hover
+  background-color: #555
+
+.btn.btn-default.editbtn:active,
+.btn.btn-default.editbtn:hover
+  background-color: #3677b4
+
+.btn.btn-default.btn-new-download.allapp:active,
+.btn.btn-default.btn-new-download.allapp:hover
+  background-color: #efefef
+
+.btn-success
+  background-color: #5cb85c
+  border-color: #279e27
+  color: #fff
+
+.btn-success:active,
+.btn-success:hover
+  background-color: #279e27
+
+.btn-danger
+  background-color: #d9534f
+  border-color: #be140e
+  color: #fff
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover
+  background-color: #990000
+  border-color: #990000
+
+.deactivate .btn
+  margin: 0 4px 2px 0
+
+.datastore-filter-settings h4.app-result-title > b
+  color: #888
+  font-size: 20px
+  font-weight: normal

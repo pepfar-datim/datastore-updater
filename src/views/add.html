@@ -1,0 +1,35 @@
+<div class="datastore-filter-settings">
+<h4><b>Add New Data Store Entry</b></h4>
+<form name="datastoreForm">
+    <div class="form-group">
+        <span class="form-control-wrap" ng-class="{'ng-valid': datastoreForm.key.$valid}">
+            <input class="form-control" name="namespace" type="text" placeholder="namespace" ng-required="true" ng-model="dataStoreEntry.namespace">
+        </span>
+        <p class="error validationerror" ng-show="datastoreForm.namespace.$invalid && datastoreForm.namespace.$touched">
+        You must enter a namespace.</p>
+    </div>
+    <div class="form-group">
+        <span class="form-control-wrap" ng-class="{'ng-valid': datastoreForm.key.$valid}">
+        <input class="form-control" name="key" type="text" placeholder="key" ng-required="true" ng-model="dataStoreEntry.key">
+        <p class="error validationerror" ng-show="datastoreForm.key.$invalid && datastoreForm.key.$touched">
+        You must enter a key.</p>
+    </div>
+    <div class="form-group">
+        <span class="form-control-wrap" ng-class="{'ng-valid': datastoreForm.value.$valid}">
+        <textarea class="form-control" name="value" type="text" placeholder="value" ng-required="true" ng-model="dataStoreEntry.value"></textarea>
+        <p class="error validationerror" ng-show="datastoreForm.value.$invalid && datastoreForm.value.$touched">
+        You must enter valid JSON.</p>
+        <p class="error validationerror" ng-show="!isValueValidJSON() && datastoreForm.value.$touched">Enter valid JSON</p>
+        </span>
+    </div>
+    <div class="form-controls-wrap">
+        <button class="btn btn-primary" ng-disabled="datastoreForm.$invalid || !isValueValidJSON()" ng-click="save()">
+            <i class="fa fa-plus-square-o adde"></i>  <span ng-bind="addDatastore.getErrorString(datastoreForm) || 'Add'"></span>
+        </button>
+        <a ui-sref="list">
+            <button class="btn btn-danger">
+                <i class="fa fa-times"></i> <span ng-bind="addDatastore.getErrorString(datastoreForm) || 'Back'"></span>
+            </button>
+        </a>
+    </div>
+</form>
