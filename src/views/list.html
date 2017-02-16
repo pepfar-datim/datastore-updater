@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-md-12 main-display datastoremain">
+        <div class="datastore-filter-settings">
+            	<div class="search-form">
+                	<div class="filters">
+                    	<div class="filterForm form-group">
+                    	<div class="row">
+                            	<div class="select-filters col-sm-12">
+                                <h4><b>Select an App</b></h4>
+                                </div>
+		                    </div>
+                            <div class="row">
+                                <div class="select-filters col-sm-5">
+                                    <div class="select-filtertype">
+                                        <ui-select ng-model="$listCtrl.currentNamespace">
+                                            <ui-select-match allow-clear="true" placeholder="------------" id="selectapp">
+                                                <span ng-bind="$listCtrl.currentNamespace"></span>
+                                            </ui-select-match>
+                                            <ui-select-choices repeat="item in $listCtrl.namespaces" ui-disable-choice="item=='datastoreRestore'">
+                                                <span ng-bind="item"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+                                </div>
+                                <div class="select-filters col-sm-2">
+                                <a ng-show="$listCtrl.currentNamespace" id="saveOutput" href="#" onClick="saveAsFile(this)">
+		                        	<button class="btn btn-default btn-new-download allapp">
+		                                <i class="fa fa-download alldown"></i> <span>Download {{$listCtrl.currentNamespace}} Settings</span>
+		                            </button>
+		                        </a>
+		                        </div>
+		                        <div class="select-filters col-sm-5">
+		                        <a ui-sref="add">
+		                            <button class="btn btn-default btn-new-datastore pull-right">
+		                                <i class="fa fa-plus-square-o"></i> <span>Add New Data Store Entry</span>
+		                            </button>
+		                       </a>
+                                </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+	            <div class="filters-collapse" collapse="isCollapsed">
+				<div class="resultbox">
+	            	<div class="row">
+	                    <div class="select-filters col-sm-8">
+	                    	<h4 class="app-result-title"><b>Data Store <span ng-show="$listCtrl.currentNamespace" style="color:#990000">{{$listCtrl.currentNamespace}}</span> Results</b></h4>
+	                    </div>
+					<div class="select-filters col-sm-4">
+                        <div class="select-filtertype">
+                        <span class="fa fa-search"></span>
+                            <input ng-model="searchText" class="form-control" placeholder="Search results" type="text">
+                        </div>
+                    </div>
+			    </div>
+                <div class="filters well">
+                    <div class="search-result">
+                    	<div class="yesresults" ng-show="$listCtrl.currentNamespace">
+                    	 <div class="loading-mask" ng-show="loading">
+					            <div class="loading-mask-inner"><i class="fa fa-circle-o-notch fa-spin"></i>&nbsp;Loading Data Store...</div>
+					        </div>
+					        <pre>Results Page: {{currentPage}} / {{numPages}}</pre>
+	                        <ul class="updater-list">
+	                            <li class="updater-list-row" ng-repeat="dataStoreItem in $listCtrl.dataStoreItems | filter:searchText | orderBy:'key' | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+	                                <div class="result">
+	                                    <div class="row updater-details-main">
+	                                        <div class="col-sm-12 tableview">
+	                                            <div class="deactivate tablecell">
+	                                                    <div class="button-group">
+	                                                        <!--a ng-click="show = !show"-->
+	                                                        <a ui-sref="edit({namespace: dataStoreItem.namespace, key: dataStoreItem.key})">
+	                                                            <button class="btn btn-default editbtn">
+	                                                                <i class="fa fa-pencil-square-o"></i>
+	                                                                Edit
+	                                                            </button>
+	                                                        </a>
+	                                                        <a ui-sref="delete({namespace: dataStoreItem.namespace, key: dataStoreItem.key})">
+		                                                        <button class="btn btn-danger" id="deletebutton">
+		                                                            <i class="fa fa-trash-o"></i>
+		                                                            Delete
+		                                                        </button>
+		                                                    </a>
+	                                                        <a ui-sref="restore({namespace: dataStoreItem.namespace, key: dataStoreItem.key})">
+		                                                    	<button class="btn btn-warning">
+		                                                            <i class="fa fa-step-backward" aria-hidden="true"></i>
+		                                                            Restore
+		                                                        </button>
+	                                                        </a>
+	                                                 </div>
+	                                             </div>
+	                                            <div class="actives tablecell">
+		                                            <span class="list-name"><b>Namespace:</b> {{dataStoreItem.namespace}}</span><br>
+		                                            <span class="list-key"><b>Key:</b> {{dataStoreItem.key}}</span><br>
+		                                            <span class="list-value"><b>Value:</b> {{dataStoreItem.value}}</span>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                        	</li>
+	                   	 	</ul>
+	                   	 	<pre>Results Page: {{currentPage}} / {{numPages}}</pre>
+	                   	 	<div class="pagination">
+                            	<uib-pagination
+                            	ng-show="$listCtrl.dataStoreItems.length > 10"
+                            	total-items="$listCtrl.dataStoreItems.length"
+                            	ng-model="currentPage"
+                            	items-per-page="pageSize"
+                            	boundary-links="true"
+			                    rotate="false"
+			                    num-pages="numPages"
+			                    max-size="maxSize"
+			                    ></uib-pagination>﻿
+						 </div>
+	                   	</div>
+						<div class="noresults" ng-hide="$listCtrl.currentNamespace">
+                            <div class="noresultsselect">No App Selected</div>
+                        </div>
+                    </div>
+            	</div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul style="display:none" id="datadown"><li ng-repeat="dataStoreItem in $listCtrl.dataStoreItems">
+{{dataStoreItem.namespace}}<br>
+{{dataStoreItem.key}}<br>
+{{dataStoreItem.value}}<br><br>
+</li></ul>

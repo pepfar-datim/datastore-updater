@@ -1,0 +1,26 @@
+<div class="datastore-filter-settings">
+<h4><b>Are you sure you want to delete the entry for {{$deleteCtrl.dataStoreEntry.namespace}}?</b></h4>
+<div class="well help-text">
+<form name="datastoreForm">
+    <div class="form-group">
+        <span class="list-name"><b>Namespace:</b> {{$deleteCtrl.dataStoreEntry.namespace}}</span>
+    </div>
+    <div class="form-group">
+        <span class="list-name"><b>Key:</b> {{$deleteCtrl.dataStoreEntry.key}}</span>
+    </div>
+    <div class="form-group deleteval">
+        <b>Value:</b> {{$deleteCtrl.dataStoreEntry.value}}
+    </div>
+    <div class="form-controls-wrap">
+        <button class="btn btn-danger" ng-class="{ 'processing': $deleteCtrl.isDeleting() }" ng-disabled="$deleteCtrl.isDeleting()" ng-click="$deleteCtrl.deleteValueToDataStore()">
+            <i class="fa fa-trash-o" aria-hidden="true"></i> <span ng-bind="deleteDatastore.getErrorString(datastoreForm) || 'Delete'"></span>
+        </button>
+        <a ui-sref="list">
+	        <button class="btn btn-danger">
+			    <i class="fa fa-times"></i> <span ng-bind="'Back'"></span>
+	        </button>
+        </a>
+    </div>
+</form>
+</div>
+</div>

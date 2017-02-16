@@ -1,0 +1,29 @@
+<div class="datastore-filter-settings">
+<h4><b>Restore previous value for {{$restoreCtrl.dataStoreEntryPrevious.namespace}}?</b></h4>
+    <div class="resultbox resultboxedit">
+        <form name="datastoreForm">
+            <div class="form-group">
+                <span class="list-name"><b>Namespace:</b> {{$restoreCtrl.dataStoreEntryPrevious.namespace}}</span>
+            </div>
+            <div class="form-group">
+                <span class="list-name"><b>Key:</b> {{$restoreCtrl.dataStoreEntryPrevious.key}}</span>
+            </div>
+            <div class="form-group">
+                <b>Value:</b> {{$restoreCtrl.dataStoreEntry.value}}
+            </div>
+            <div class="form-group preval">
+                <b>Previous Value:</b> {{$restoreCtrl.dataStoreEntryPrevious.restorevalue}}
+            </div>
+            <div class="form-controls-wrap">
+                <button class="btn btn-warning" ng-class="{ 'processing': $restoreCtrl.isUpdating() }" ng-click="$restoreCtrl.updateRestoreValueToDataStore()">
+                    <i class="fa fa-step-backward" aria-hidden="true"></i> <span ng-bind="addDatastore.getErrorString(datastoreForm) || 'Restore'"></span>
+                </button>
+                <a ui-sref="list">
+                    <button class="btn btn-danger">
+                        <i class="fa fa-times"></i> <span ng-bind="addDatastore.getErrorString(datastoreForm) || 'Back'"></span>
+                    </button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="datastore-filter-settings">
+<h4><b>Edit: {{$editCtrl.dataStoreEntry.namespace}}</b></h4>
+    <div class="resultbox resultboxedit">
+        <form name="datastoreForm">
+            <div class="form-group">
+                <span class="list-name"><b>Namespace:</b> {{$editCtrl.dataStoreEntry.namespace}}</span>
+            </div>
+            <div class="form-group">
+                <span class="list-name"><b>Key:</b> {{$editCtrl.dataStoreEntry.key}}</span>
+            </div>
+            <div class="form-group">
+            <span class="list-name"><b>Value:</b></span>
+                <span class="form-control-wrap" ng-class="{'ng-valid': datastoreForm.value.$valid}">
+                    <textarea class="form-control edittextarea" name="value" type="text" ng-required="true" ng-change="$editCtrl.updateValue()" ng-model="$editCtrl.dataStoreEntry.value"></textarea>
+                </span>
+                <p class="error validationerror" ng-show="datastoreForm.value.$invalid && datastoreForm.value.$touched">
+                You must enter a new value.</p>
+                <p class="error validationerror" ng-show="!$editCtrl.isValueValidJSON()">Not valid JSON</p>
+            </div>
+            <div class="form-controls-wrap">
+                <button class="btn btn-success" ng-class="{ 'processing': $editCtrl.isUpdating() }" ng-disabled="!datastoreForm.$valid || $editCtrl.isUpdating() || !$editCtrl.isValueValidJSON()" ng-click="$editCtrl.updateValueToDataStore()">
+                    <i class="fa fa-arrow-up" aria-hidden="true"></i> <span ng-bind="addDatastore.getErrorString(datastoreForm) || 'Update'"></span>
+                </button>
+                <a ui-sref="list">
+                    <button class="btn btn-danger">
+                        <i class="fa fa-times"></i> <span ng-bind="addDatastore.getErrorString(datastoreForm) || 'Back'"></span>
+                    </button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

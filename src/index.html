@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Data Store Updater &#10226;</title>
+        <!-- build:css css/vendor.css -->
+        <link href="../vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+        <link href="../vendor/toastr/toastr.css" rel="stylesheet" type="text/css" />
+        <link href="../vendor/animate.css/animate.css" rel="stylesheet" type="text/css" />
+        <link href="../vendor/angular-ui-select/dist/select.css" rel="stylesheet" type="text/css" />
+        <!-- endbuild -->
+        <!-- build:css css/app.css -->
+        <link href="../temp/css/app/app.css" rel="stylesheet" type="text/css" />
+        <!-- endbuild -->
+    </head>
+
+    <body ng-controller="appController as app">
+
+        <div class="dnapp">
+
+            <d2-header-bar></d2-header-bar>
+
+            <div class="app-content-wrap">
+                    <h1 class="app-header"><a ui-sref="list">Data Store Updater</a><span class="app-header-icon">&#10226;</span></h1>
+                    <div class="well help-text">
+                        <b>Information:</b> Using the Data Store Editor you can view, change and update values for other Data Stores in different apps. Access to an additional Data Store is limited to the user's access to the corresponding app. For example, a user with access to the Data Deduplication app will also be able to use the Data Deduplication app Data Store.
+                    </div>
+                    <div ng-init="tab=1" class="tabscontainer">
+                            <div class="container">
+                                  <div ui-view>
+
+                        <!-- views show here -->
+
+                                  </div>
+                            </div>
+                    </div>
+            </div>
+
+            <!-- build:js js/vendor.js -->
+            <script src="../vendor/jquery/dist/jquery.js"></script>
+            <script src="../vendor/toastr/toastr.js"></script>
+            <script src="../vendor/angular/angular.js"></script>
+            <script src="../vendor/angular-animate/angular-animate.js"></script>
+            <script src="../vendor/angular-messages/angular-messages.js"></script>
+            <script src="../vendor/lodash/dist/lodash.js"></script>
+            <script src="../vendor/restangular/dist/restangular.js"></script>
+            <script src="../vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+            <script src="../vendor/angular-translate/angular-translate.js"></script>
+            <script src="../vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+            <script src="../vendor/angular-ui-select/dist/select.js"></script>
+            <script src="../vendor/ngBootstrapper/ngBootstrapper.js"></script>
+            <script src="../vendor/notify/notify-service.js"></script>
+            <script src="../vendor/ui-router/release/angular-ui-router.min.js"></script>
+            <!-- endbuild -->
+
+            <!-- build:js js/app.js -->
+            <script src="app/app.js"></script>
+            <script src="app/app-controller.js"></script>
+            <script src="app/route-controllers/list-controller.js"></script>
+            <script src="app/route-controllers/edit-controller.js"></script>
+            <script src="app/route-controllers/restore-controller.js"></script>
+            <script src="app/route-controllers/delete-controller.js"></script>
+            <script src="app/dataStore-service.js"></script>
+            <!-- endbuild -->
+
+        </div>
+
+    </body>
+
+</html>
