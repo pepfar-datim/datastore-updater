@@ -1,3 +1,6 @@
+# ARCHIVED on 07-30-19
+https://github.com/pepfar-datim/Global/issues/5241
+
 # Data Store Updater
 
 Data Store Updater app for DATIM
